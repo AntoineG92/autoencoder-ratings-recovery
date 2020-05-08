@@ -1,10 +1,10 @@
 # goodreads-recommender
 
 ## Objectives
-This project contains a deep learning autoencoder applied to the inference of unobserved rating data, implemented with Tensorflow 2.0. The data comes from the public release of 53k+ users ratings of 10k books from Goodeads.com. This model is inspired frm the reference paper *"Hybrid Recommender System Based on Autoencoders"* which is available [here](https://hal.inria.fr/hal-01336912v2/document).
+In this project, I have build a deep learning autoencoder applied to the inference of unobserved rating data, implemented with Tensorflow 2.0. The data comes from the public release of 53k+ users ratings of 10k books from Goodeads.com. This model is inspired from the reference paper *"Hybrid Recommender System Based on Autoencoders"* which is available [here](https://hal.inria.fr/hal-01336912v2/document).
 
 ### Background
-#### Introduction to autoencoder-based recommenders
+#### A word on autoencoders applied to user/item ratings
 Given a sparse user/item matrix of ratings, an Encoder layer learns a compressed representation of this input matrix. Then, given this latent representation, a Decoder layer learns to reconstruct a dense matrix of ratings of the same size as the input matrix. The combination of Encoder-Decoder aims at recovering the unboserved user/item ratings.
 
 This network has two specificities :
@@ -12,12 +12,11 @@ This network has two specificities :
 * We apply L2 regularization on both Encoder and Decoder weights, so that the weights do not degenerate to identity matrices (that is, reconstructing the exact input matrix)
 
 #### Denoising autoencoder (DAE)
-One method to fight degeneracy of weights is to add Gaussian noise to a fraction of the input data. Now the objective of the network is two-fold :
+One way to fight degeneracy of weights is adding Gaussian noise to a random fraction of the input data. Now the objective is two-fold :
 * Reconstructing the input matrix where the input data has not changed
 * Denoising the input data where the input data has been corrupted
 
 This is essentially what the denoising autoencoder (DAE) does. In essence, the loss function of the DAE breaks down into two components : the reconstruction loss and the denoising loss.
-
 
 ## Getting started
 
