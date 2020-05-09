@@ -30,7 +30,11 @@ Train the model
 python src/train.py
 ```
 
-Reconstruct the full user/book matrix
+Reconstruct and save the user/book matrix
 ```
 python src/predict.py
+```
+Given the recovered ratings matrix, print the 20 highest rated books for a User
+```
+python src/recommend.py
 ```
